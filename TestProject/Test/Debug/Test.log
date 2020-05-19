@@ -1,2 +1,4 @@
-﻿  01_hello_SDL.cpp
-  Test.vcxproj -> C:\Users\srowlands\Documents\source\repos\TestProject\Debug\Test.exe
+﻿  SDLWrapper.cpp
+  main.cpp
+  Generating Code...
+  Test.vcxproj -> C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Debug\Test.exe
