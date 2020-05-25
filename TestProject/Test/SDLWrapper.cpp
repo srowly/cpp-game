@@ -1,10 +1,20 @@
 #include "SDLWrapper.h"
 
+SDLWrapper::SDLWrapper()
+{
+	renderer = NULL;
+}
+
+SDLWrapper::~SDLWrapper()
+{
+	renderer = NULL;
+}
+
 bool SDLWrapper::initSDL()
 {
 	//Initialization flag
 	bool success = true;
-		
+
 	//Initialize SDL
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
@@ -15,52 +25,18 @@ bool SDLWrapper::initSDL()
 	{
 		//set running flag
 		isRunning = true;
-
-		//Create window
-		gWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-		if (gWindow == NULL)
-		{
-			printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
-			success = false;
-		}
-		else
-		{
-			//Get window surface
-			gScreenSurface = SDL_GetWindowSurface(gWindow);
-		}
+		renderer = new Renderer;
+		renderer->init(640, 480);
+		Texture* texture = renderer->loadTextureFromFile("texture.png");
+		renderer->renderTexture(0, 0, texture);
 	}
 
-	return success;
-}
-
-bool SDLWrapper::loadMedia(const char * filePath)
-{
-	//Loading success flag
-	bool success = true;
-
-	//Load splash image
-	gHelloWorld = SDL_LoadBMP(filePath);
-	if (gHelloWorld == NULL)
-	{
-		printf("Unable to load image %s! SDL Error: %s\n", filePath, SDL_GetError());
-		success = false;
-	}
-
-	SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
-	SDL_UpdateWindowSurface(gWindow);
 	return success;
 }
 
 void SDLWrapper::deinitSDL()
 {
-	//Deallocate surface
-	SDL_FreeSurface(gHelloWorld);
-	gHelloWorld = NULL;
-
-	//Destroy window
-	SDL_DestroyWindow(gWindow);
-	gWindow = NULL;
-
+	delete renderer;
 	//Quit SDL subsystems
 	SDL_Quit();
 }
@@ -68,6 +44,11 @@ void SDLWrapper::deinitSDL()
 void SDLWrapper::delay(Uint32 duration)
 {
 	SDL_Delay(duration);
+}
+
+void SDLWrapper::MainLoop()
+{
+	EventLoop();
 }
 
 void SDLWrapper::EventLoop()
@@ -78,9 +59,30 @@ void SDLWrapper::EventLoop()
 	while (SDL_PollEvent(&e) != 0)
 	{
 		//User requests quit
-		if (e.type == SDL_QUIT)
+		switch (e.type)
 		{
+		case SDL_QUIT:
+		{
+			printf("User Quit");
 			isRunning = false;
+			break;
+		}
+		case SDL_KEYDOWN:
+		{
+			switch (e.key.keysym.sym)
+			{
+			case SDLK_UP:
+				break;
+			case SDLK_DOWN:
+				break;
+			case SDLK_LEFT:
+				break;
+			case SDLK_RIGHT:
+				break;
+			default:
+				break;
+			}
+		}
 		}
 	}
 }

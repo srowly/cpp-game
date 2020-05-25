@@ -10,18 +10,9 @@ int main(int argc, char* args[])
 	}
 	else
 	{
-		//Load media
-		if (!sdl.loadMedia("02_getting_an_image_on_the_screen/hello_world.bmp"))
+		while (sdl.isRunning)
 		{
-			printf("Failed to load media!\n");
-		}
-		else
-		{
-			//While application is running
-			while (sdl.isRunning)
-			{
-				sdl.EventLoop();
-			}
+			sdl.MainLoop();
 		}
 	}
 
