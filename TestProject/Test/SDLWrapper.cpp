@@ -26,9 +26,17 @@ bool SDLWrapper::initSDL()
 		//set running flag
 		isRunning = true;
 		renderer = new Renderer;
-		renderer->init(640, 480);
-		Texture* texture = renderer->loadTextureFromFile("texture.png");
-		renderer->renderTexture(0, 0, texture);
+		renderer->init(1600, 960);
+		Texture* texture = renderer->loadTextureFromFile("spritesheet.png");
+		renderer->setRenderedTexture(texture);
+		for (size_t i = 0; i < 1600; i+=30)
+		{
+			for (size_t j = 0; j < 960; j+=30)
+			{
+				SDL_Rect clip = { i, j, 30, 30 };
+				renderer->renderTexture(i, j, texture, &clip);
+			}
+		}
 	}
 
 	return success;

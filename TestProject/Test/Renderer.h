@@ -17,7 +17,7 @@ public:
 	Texture* loadTextureFromFile(const char* path);
 
 	//Renders texture at given point
-	 void renderTexture(int x, int y, Texture* texture);
+	 void renderTexture(int x, int y, Texture* texture, SDL_Rect* clip);
 
 	 void setRenderedTexture(Texture* texture);
 

@@ -32,7 +32,7 @@ Renderer::~Renderer()
 
 bool Renderer::init(int width, int height)
 {
-	SDL_Color color = { 0xFF, 0xFF, 0xFF, 0xFF };
+	SDL_Color color = { 255, 255, 255, 255 };
 	clearColor = &color;
 
 	window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);
@@ -60,7 +60,7 @@ bool Renderer::init(int width, int height)
 			}
 		}
 	}
-
+	clear();
 	return true;
 }
 
@@ -81,6 +81,8 @@ void Renderer::drawFilledRect(int x, int y)
 	SDL_Rect fillRect = { x / 4, y / 4, x / 2, y / 2 };
 	SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
 	SDL_RenderFillRect(renderer, &fillRect);
+
+	update();
 }
 
 void Renderer::drawOutlinedRect(int x, int y)
@@ -107,8 +109,6 @@ void Renderer::drawDottedLine(int x, int y)
 		SDL_RenderDrawPoint(renderer, x / 2, i);
 	}
 }
-
-
 
 Texture* Renderer::loadTextureFromFile(const char* path)
 {
@@ -159,13 +159,20 @@ void Renderer::setRenderedTexture(Texture* texture)
 }
 
 
-void Renderer::renderTexture(int x, int y, Texture* texture)
+void Renderer::renderTexture(int xPos, int yPos, Texture* texture, SDL_Rect* clip)
 {
-	setRenderedTexture(texture);
+	//Set rendering space and render to screen
+	SDL_Rect renderQuad = { xPos, yPos, texture->getWidth(), texture->getHeight() };
+
+	//Set clip rendering dimensions
+	if (clip != NULL)
+	{
+		renderQuad.w = clip->w;
+		renderQuad.h = clip->h;
+	}
 
     //Set rendering space and render to screen
-    SDL_Rect renderQuad = { x, y, texture->getWidth(), texture->getHeight() };
-    SDL_RenderCopy(renderer, texture->getTexture(), NULL, &renderQuad);
+    SDL_RenderCopy(renderer, texture->getTexture(), clip, &renderQuad);
 
 	update();
 }
