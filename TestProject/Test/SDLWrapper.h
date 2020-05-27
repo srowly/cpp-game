@@ -26,5 +26,6 @@ public:
 
 private:
 	Renderer* renderer;
+	int curSprite = 0;
 };
 

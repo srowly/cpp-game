@@ -27,16 +27,9 @@ bool SDLWrapper::initSDL()
 		isRunning = true;
 		renderer = new Renderer;
 		renderer->init(1600, 960);
-		Texture* texture = renderer->loadTextureFromFile("spritesheet.png");
-		renderer->setRenderedTexture(texture);
-		for (size_t i = 0; i < 1600; i+=30)
-		{
-			for (size_t j = 0; j < 960; j+=30)
-			{
-				SDL_Rect clip = { i, j, 30, 30 };
-				renderer->renderTexture(i, j, texture, &clip);
-			}
-		}
+		Texture* texture = renderer->loadTextureFromFile("sprite_sheet_full.png");
+		renderer->setSpriteSheet(texture, 32);
+		renderer->renderSpriteFromSheet(curSprite, 800, 480);
 	}
 
 	return success;
@@ -84,8 +77,12 @@ void SDLWrapper::EventLoop()
 			case SDLK_DOWN:
 				break;
 			case SDLK_LEFT:
+				renderer->clear();
+				renderer->renderSpriteFromSheet(curSprite--, 800, 480);
 				break;
 			case SDLK_RIGHT:
+				renderer->clear();
+				renderer->renderSpriteFromSheet(curSprite++, 800, 480);
 				break;
 			default:
 				break;

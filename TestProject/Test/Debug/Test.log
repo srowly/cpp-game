@@ -1,6 +1,2 @@
-﻿  Renderer.cpp
-  SDLWrapper.cpp
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\SDLWrapper.cpp(36,23): warning C4838: conversion from 'size_t' to 'int' requires a narrowing conversion
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\SDLWrapper.cpp(36,26): warning C4838: conversion from 'size_t' to 'int' requires a narrowing conversion
-  Generating Code...
+﻿  SDLWrapper.cpp
   Test.vcxproj -> C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Debug\Test.exe

@@ -3,7 +3,7 @@
 Renderer::Renderer()
 {
 	renderer = NULL;
-	renderedTexture = NULL;
+	spriteSheet = NULL;
 	window = NULL;
 	clearColor = NULL;
 }
@@ -24,7 +24,7 @@ Renderer::~Renderer()
 		window = NULL;
 	}
 	
-	setRenderedTexture(NULL);
+	setSpriteSheet(NULL, 0);
 
 	//de init png loading substem
 	IMG_Quit();
@@ -148,16 +148,31 @@ Texture* Renderer::loadTextureFromFile(const char* path)
     return texture;
 }
 
-void Renderer::setRenderedTexture(Texture* texture)
+void Renderer::setSpriteSheet(Texture* sheet, int dimension)
 {
-	if (renderedTexture != NULL)
+	if (spriteSheet != NULL)
 	{
-		delete renderedTexture;
+		delete spriteSheet;
 	}
 
-	renderedTexture = texture;
+	spriteSheet = sheet;
+	this->dimension = dimension;
 }
 
+void Renderer::renderSpriteFromSheet(int spriteNo, int xPos, int yPos)
+{
+	if (spriteSheet == NULL)
+		return;
+
+	int rows = spriteSheet->getHeight() / dimension;
+
+	int y = spriteNo / rows;
+	int x = spriteNo % rows;
+
+	SDL_Rect clip = { x*dimension, y*dimension, dimension, dimension };
+
+	renderTexture(xPos, yPos, spriteSheet, &clip);
+}
 
 void Renderer::renderTexture(int xPos, int yPos, Texture* texture, SDL_Rect* clip)
 {

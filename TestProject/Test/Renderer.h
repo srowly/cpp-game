@@ -19,7 +19,8 @@ public:
 	//Renders texture at given point
 	 void renderTexture(int x, int y, Texture* texture, SDL_Rect* clip);
 
-	 void setRenderedTexture(Texture* texture);
+	 void setSpriteSheet(Texture* sheet, int dimension);
+	 void renderSpriteFromSheet(int spriteNo, int xPos, int yPos);
 
 	void drawFilledRect(int x, int y);
 	void drawOutlinedRect(int x, int y);
@@ -37,6 +38,7 @@ private:
 	SDL_Renderer* renderer;
 	SDL_Color* clearColor;
 
-	Texture* renderedTexture;
+	Texture* spriteSheet;
+	int dimension;
 };
 
