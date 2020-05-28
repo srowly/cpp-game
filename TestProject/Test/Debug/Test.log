@@ -1,2 +1,39 @@
-﻿  SDLWrapper.cpp
-  Test.vcxproj -> C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Debug\Test.exe
+﻿  BSPAlgorithm.cpp
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(7,27): error C3646: 'corridorType': unknown override specifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(7,27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(9,77): error C2061: syntax error: identifier 'CorridorType'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(11,17): error C2061: syntax error: identifier 'Level'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(11,59): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(11,59): warning C4183: 'Generate': missing return type; assumed to be a member function returning 'int'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(12,18): error C2061: syntax error: identifier 'Grid'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(12,34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(12,34): warning C4183: 'DivideGrid': missing return type; assumed to be a member function returning 'int'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(30,22): error C2398: Element '1': conversion from 'unsigned int' to 'T' requires a narrowing conversion
+          with
+          [
+              T=int
+          ]
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(30,38): error C2398: Element '2': conversion from 'unsigned int' to 'T' requires a narrowing conversion
+          with
+          [
+              T=int
+          ]
+  BSPParameters.cpp
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(7,27): error C3646: 'corridorType': unknown override specifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(7,27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(9,77): error C2061: syntax error: identifier 'CorridorType'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.cpp(4,1): error C2511: 'BSPParameters::BSPParameters(int,int,int,CorridorType)': overloaded member function not found in 'BSPParameters'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(2): message : see declaration of 'BSPParameters'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.cpp(5,2): error C2597: illegal reference to non-static member 'BSPParameters::minNumRooms'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(4): message : see declaration of 'BSPParameters::minNumRooms'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.cpp(6,2): error C2597: illegal reference to non-static member 'BSPParameters::minRoomWidth'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(5): message : see declaration of 'BSPParameters::minRoomWidth'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.cpp(7,2): error C2597: illegal reference to non-static member 'BSPParameters::minRoomHeight'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(6): message : see declaration of 'BSPParameters::minRoomHeight'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.cpp(8,2): error C2065: 'corridorType': undeclared identifier
+  SDLWrapper.cpp
+  Tile.cpp
+  Vector2.cpp
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Vector2.cpp(6,6): error C3861: 'NULL': identifier not found
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Vector2.cpp(7,6): error C3861: 'NULL': identifier not found
+  Generating Code...

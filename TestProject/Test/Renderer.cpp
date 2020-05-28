@@ -6,6 +6,7 @@ Renderer::Renderer()
 	spriteSheet = NULL;
 	window = NULL;
 	clearColor = NULL;
+	spriteSheetDimensions = 0;
 }
 
 Renderer::~Renderer()
@@ -23,8 +24,9 @@ Renderer::~Renderer()
 		SDL_DestroyWindow(window);
 		window = NULL;
 	}
-	
-	setSpriteSheet(NULL, 0);
+
+	delete spriteSheet;
+	spriteSheetDimensions = 0;
 
 	//de init png loading substem
 	IMG_Quit();
@@ -110,53 +112,41 @@ void Renderer::drawDottedLine(int x, int y)
 	}
 }
 
-Texture* Renderer::loadTextureFromFile(const char* path)
+void Renderer::loadSpriteSheet(const char* path, int spriteDimensions)
 {
-    //The final texture
-	Texture* texture = new Texture();
+	SDL_Texture* sdlTexture = NULL;
 
-    SDL_Texture* sdlTexture = NULL;
+	//Load image at specified path
+	SDL_Surface* loadedSurface = IMG_Load(path);
+	if (loadedSurface == NULL)
+	{
+		printf("Unable to load image %s! SDL_image Error: %s\n", path, IMG_GetError());
+	}
+	else
+	{
+		//Color key image
+		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 0xFF, 0xFF));
 
-    //Load image at specified path
-    SDL_Surface* loadedSurface = IMG_Load(path);
-    if (loadedSurface == NULL)
-    {
-        printf("Unable to load image %s! SDL_image Error: %s\n", path, IMG_GetError());
-    }
-    else
-    {
-        //Color key image
-        SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 0xFF, 0xFF));
-
-        //Create texture from surface pixels
+		//Create texture from surface pixels
 		sdlTexture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
 
-        if (sdlTexture == NULL)
-        {
-            printf("Unable to create texture from %s! SDL Error: %s\n", path, SDL_GetError());
-        }
-        else
-        {
-			texture->init(sdlTexture, loadedSurface->w, loadedSurface->h);
-        }
+		if (sdlTexture == NULL)
+		{
+			printf("Unable to create texture from %s! SDL Error: %s\n", path, SDL_GetError());
+		}
+		else
+		{
+			if(spriteSheet != NULL)
+				delete spriteSheet;
 
-        //Get rid of old loaded surface
-        SDL_FreeSurface(loadedSurface);
-    }
+			spriteSheet = new Texture;
+			spriteSheet->init(sdlTexture, loadedSurface->w, loadedSurface->h);
+			spriteSheetDimensions = spriteDimensions;
+		}
 
-    //Return success
-    return texture;
-}
-
-void Renderer::setSpriteSheet(Texture* sheet, int dimension)
-{
-	if (spriteSheet != NULL)
-	{
-		delete spriteSheet;
+		//Get rid of old loaded surface
+		SDL_FreeSurface(loadedSurface);
 	}
-
-	spriteSheet = sheet;
-	this->dimension = dimension;
 }
 
 void Renderer::renderSpriteFromSheet(int spriteNo, int xPos, int yPos)
@@ -164,12 +154,12 @@ void Renderer::renderSpriteFromSheet(int spriteNo, int xPos, int yPos)
 	if (spriteSheet == NULL)
 		return;
 
-	int rows = spriteSheet->getHeight() / dimension;
+	int rows = spriteSheet->getHeight() / spriteSheetDimensions;
 
 	int y = spriteNo / rows;
 	int x = spriteNo % rows;
 
-	SDL_Rect clip = { x*dimension, y*dimension, dimension, dimension };
+	SDL_Rect clip = { x*spriteSheetDimensions, y*spriteSheetDimensions, spriteSheetDimensions, spriteSheetDimensions };
 
 	renderTexture(xPos, yPos, spriteSheet, &clip);
 }

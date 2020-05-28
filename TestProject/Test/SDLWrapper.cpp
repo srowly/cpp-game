@@ -27,8 +27,7 @@ bool SDLWrapper::initSDL()
 		isRunning = true;
 		renderer = new Renderer;
 		renderer->init(1600, 960);
-		Texture* texture = renderer->loadTextureFromFile("sprite_sheet_full.png");
-		renderer->setSpriteSheet(texture, 32);
+		renderer->loadSpriteSheet("sprite_sheet_full.png", 32);
 		renderer->renderSpriteFromSheet(curSprite, 800, 480);
 	}
 

@@ -14,12 +14,11 @@ public:
 	bool init(int width, int height);
 
 	//Loads image at specified path
-	Texture* loadTextureFromFile(const char* path);
+	void loadSpriteSheet(const char* path, int spriteDimensions);
 
 	//Renders texture at given point
 	 void renderTexture(int x, int y, Texture* texture, SDL_Rect* clip);
 
-	 void setSpriteSheet(Texture* sheet, int dimension);
 	 void renderSpriteFromSheet(int spriteNo, int xPos, int yPos);
 
 	void drawFilledRect(int x, int y);
@@ -39,6 +38,6 @@ private:
 	SDL_Color* clearColor;
 
 	Texture* spriteSheet;
-	int dimension;
+	int spriteSheetDimensions;
 };
 
