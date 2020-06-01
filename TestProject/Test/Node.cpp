@@ -3,13 +3,20 @@
 Node::Node(Grid grid)
 {
 	this->grid = grid;
-	size = { grid.size(), grid[0].size() };
+	size = { grid.tiles.size(), grid.tiles[0].size() };
 	leftChild = NULL;
 	rightChild = NULL;
+	room = NULL;
 };
 
 Node::~Node()
 {
-	delete leftChild;
-	delete rightChild;
+	if(leftChild != NULL)
+		delete leftChild;
+
+	if(rightChild != NULL)
+		delete rightChild;
+
+	if(room != NULL)
+		delete room;
 };

@@ -1,70 +1,64 @@
 #include "CorridorGenerator.h"
 
-CorridorGenerator(Level level, CorridorType type)
+CorridorGenerator::CorridorGenerator(Level level, CorridorType type)
 {
-    m_level = level;
-    m_type = type;
+    this->level = level;
+    this->type = type;
 }
 
-void CorridorGenerator::PlaceCorridors(Node n)
+void CorridorGenerator::PlaceCorridors(Node* node)
 {
-    if (n.leftChild != NULL && n.rightChild != NULL)
+    if (node->leftChild != NULL && node->rightChild != NULL)
     {
-        GenNewCorridor(GetRoom(n.leftChild), GetRoom(n.rightChild));
-        PlaceCorridors(n.leftChild);
-        PlaceCorridors(n.rightChild);
+        GenNewCorridor(GetRoom(node->leftChild), GetRoom(node->rightChild));
+        PlaceCorridors(node->leftChild);
+        PlaceCorridors(node->rightChild);
     }
 }
 
-Tile[, ] CorridorGenerator::GetRoom(Node node)
+TileGrid CorridorGenerator::GetRoom(Node* node)
 {
-    if (node.Room != null)
-        return node.Room;
+    if (node->room != NULL)
+        return node->room->tiles;
     else
     {
-        Tile[, ] lRoom = null;
-        Tile[, ] rRoom = null;
+        TileGrid lRoom;
+        TileGrid rRoom;
 
-        if (node.LeftChild != null)
-            lRoom = GetRoom(node.LeftChild);
-        if (node.RightChild != null)
-            rRoom = GetRoom(node.RightChild);
+        if (node->leftChild != NULL)
+            lRoom = GetRoom(node->leftChild);
+        if (node->rightChild != NULL)
+            rRoom = GetRoom(node->rightChild);
 
-        if (lRoom == null && rRoom == null)
+        if (lRoom == NULL && rRoom == NULL)
             return null;
-        else if (lRoom == null)
+        else if (lRoom == NULL)
             return rRoom;
-        else if (rRoom == null)
+        else if (rRoom == NULL)
             return lRoom;
-        else if (Random.Range(0, 2) == 0)
+        else if rand() % nodeX / 2 + 1;
             return lRoom;
         else
             return rRoom;
     }
 }
 
-void CorridorGenerator::GenNewCorridor(Tile[, ] roomOne, Tile[, ] roomTwo)
+void CorridorGenerator::GenNewCorridor(TileGrid roomOne, TileGrid roomTwo)
 {
-    if (roomOne == null || roomTwo == null)
+    if (roomOne == NULL || roomTwo == NULL)
         return;
 
-    int[] lengths = GetRoomLengths(roomOne, roomTwo);
+    auto lengths = GetRoomLengths(roomOne, roomTwo);
 
-    switch (m_type)
+    switch (type)
     {
-    case CorridorType.Straight:
-        PlaceStraightCorridor(roomOne, roomTwo, lengths);
-        break;
-    case CorridorType.Bent:
-        PlaceBentCorridor(roomOne, roomTwo, lengths);
-        break;
-    case CorridorType.ZigZag:
-        PlaceZCorridor(roomOne, roomTwo, lengths);
-        break;
+        case Straight:
+            PlaceStraightCorridor(roomOne, roomTwo, lengths);
+            break;
     }
 }
 
-void CorridorGenerator::PlaceStraightCorridor(Tile[, ] roomOne, Tile[, ] roomTwo, int[] lengths)
+void CorridorGenerator::PlaceStraightCorridor(TileGrid roomOne, TileGrid roomTwo, std::vector<int> lengths)
 {
     Vector2 botLeftOne = roomOne[0, 0].GridPosition;
     Vector2 topRightOne = roomOne[roomOne.GetLength(0) - 1, roomOne.GetLength(1) - 1].GridPosition;
@@ -109,7 +103,7 @@ void CorridorGenerator::PlaceStraightCorridor(Tile[, ] roomOne, Tile[, ] roomTwo
     }
 }
 
-void CorridorGenerator::PlaceStraightXCorridor(Tile[, ] roomOne, Tile[, ] roomTwo, int[] roomLengths)
+void CorridorGenerator::PlaceStraightXCorridor(TileGrid roomOne, TileGrid roomTwo, std::vector<int> roomLengths)
 {
     List<int> possiblePositions = new List<int>();
 
@@ -131,7 +125,7 @@ void CorridorGenerator::PlaceStraightXCorridor(Tile[, ] roomOne, Tile[, ] roomTw
     PlaceCorridor(rOneX + 1, rTwoX, chosenY, chosenY + 1);
 }
 
-void CorridorGenerator::PlaceStraightYCorridor(Tile[, ] roomOne, Tile[, ] roomTwo, int[] roomLengths)
+void CorridorGenerator::PlaceStraightYCorridor(Tile[, ] roomOne, Tile[, ] roomTwo, std::vector<int> roomLengths)
 {
     List<int> possiblePositions = new List<int>();
 
@@ -153,7 +147,7 @@ void CorridorGenerator::PlaceStraightYCorridor(Tile[, ] roomOne, Tile[, ] roomTw
     PlaceCorridor(chosenX, chosenX + 1, rOneY + 1, rTwoY);
 }
 
-void CorridorGenerator::PlaceBentCorridor(Tile[, ] roomOne, Tile[, ] roomTwo, int[] roomLengths)
+void CorridorGenerator::PlaceBentCorridor(TileGrid roomOne, TileGrid roomTwo, std::vector<int> roomLengths)
 {
     Tile randTileOne = roomOne[Random.Range(0, roomLengths[0] - 1), Random.Range(0, roomLengths[1] - 1)];
     Tile randTileTwo = roomTwo[Random.Range(0, roomLengths[2] - 1), Random.Range(0, roomLengths[3] - 1)];
@@ -184,46 +178,13 @@ void CorridorGenerator::PlaceBentCorridor(Tile[, ] roomOne, Tile[, ] roomTwo, in
     }
 }
 
-void CorridorGenerator::PlaceZCorridor(Tile[, ] roomOne, Tile[, ] roomTwo, int[] roomLengths)
-{
-    Tile randTileOne = roomOne[Random.Range(0, roomLengths[0] - 1), Random.Range(0, roomLengths[1] - 1)];
-    Tile randTileTwo = roomTwo[Random.Range(0, roomLengths[2] - 1), Random.Range(0, roomLengths[3] - 1)];
-
-    int rOneX = randTileOne.GridPosition.x;
-    int rOneY = randTileOne.GridPosition.y;
-    int rTwoX = randTileTwo.GridPosition.x;
-    int rTwoY = randTileTwo.GridPosition.y;
-
-    if (rOneX < rTwoX)
-    {
-        int rNewX = GetHalfway(rTwoX, rOneX);
-        PlaceCorridor(rOneX, rNewX + 1, rOneY, rOneY + 1);
-        PlaceCorridor(rNewX, rTwoX, rTwoY, rTwoY + 1);
-
-        if (rOneY < rTwoY)
-            PlaceCorridor(rNewX, rNewX + 1, rOneY, rTwoY);
-        else
-            PlaceCorridor(rNewX, rNewX + 1, rTwoY, rOneY);
-    }
-
-    else
-    {
-        int rNewX = GetHalfway(rOneX, rTwoX);
-        PlaceCorridor(rTwoX, rNewX + 1, rTwoY, rTwoY + 1);
-        PlaceCorridor(rNewX, rOneX, rOneY, rOneY + 1);
-
-        if (rOneY < rTwoY)
-            PlaceCorridor(rNewX, rNewX + 1, rOneY, rTwoY);
-        else
-            PlaceCorridor(rNewX, rNewX + 1, rTwoY, rOneY);
-    }
-}
 
 void CorridorGenerator::PlaceCorridor(int minX, int maxX, int minY, int maxY)
 {
-    var corridor = Grid.GetSection(m_level.Grid.Tiles, minX, maxX, minY, maxY);
-    Grid.SetSection(corridor, Tile.Types.Floor, (obj) = > m_level.Floor.Add(obj));
-    m_level.AddCorridor(new Corridor(corridor));
+    TileGrid corridor = Grid::GetSection(level.grid.tiles, minX, maxX, minY, maxY);
+    std::function<void(Tile)> lambda = [&](Tile t) { level.floor.insert(t); };
+    Grid::SetSection(corridor, Tile::Types::Floor, lambda);
+    level.AddCorridor(corridor);
 }
 
 int CorridorGenerator::GetHalfway(int i, int j)
@@ -233,13 +194,13 @@ int CorridorGenerator::GetHalfway(int i, int j)
     return (int)k;
 }
 
-int[] CorridorGenerator::GetRoomLengths(Tile[, ] roomOne, Tile[, ] roomTwo)
+std::vector<int> CorridorGenerator::GetRoomLengths(TileGrid roomOne, TileGrid roomTwo)
 {
-    int[] lengths = new int[4];
-    lengths[0] = roomOne.GetLength(0);
-    lengths[1] = roomOne.GetLength(1);
-    lengths[2] = roomTwo.GetLength(0);
-    lengths[3] = roomTwo.GetLength(1);
+    std::vector<int> lengths;
+    lengths[0] = roomOne.size();
+    lengths[1] = roomOne[0].size();
+    lengths[2] = roomTwo.size();
+    lengths[3] = roomTwo[0].size();
 
     return lengths;
 }

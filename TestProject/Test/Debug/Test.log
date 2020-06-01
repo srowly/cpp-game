@@ -1,39 +1,227 @@
 ﻿  BSPAlgorithm.cpp
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(7,27): error C3646: 'corridorType': unknown override specifier
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(7,27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(9,77): error C2061: syntax error: identifier 'CorridorType'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(11,17): error C2061: syntax error: identifier 'Level'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(11,59): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(11,59): warning C4183: 'Generate': missing return type; assumed to be a member function returning 'int'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(12,18): error C2061: syntax error: identifier 'Grid'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(12,34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(12,34): warning C4183: 'DivideGrid': missing return type; assumed to be a member function returning 'int'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(30,22): error C2398: Element '1': conversion from 'unsigned int' to 'T' requires a narrowing conversion
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.cpp(7,45): error C2398: Element '1': conversion from 'unsigned int' to 'T' requires a narrowing conversion
           with
           [
               T=int
           ]
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.h(30,38): error C2398: Element '2': conversion from 'unsigned int' to 'T' requires a narrowing conversion
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPAlgorithm.cpp(7,98): error C2398: Element '2': conversion from 'unsigned int' to 'T' requires a narrowing conversion
           with
           [
               T=int
           ]
-  BSPParameters.cpp
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(7,27): error C3646: 'corridorType': unknown override specifier
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(7,27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(9,77): error C2061: syntax error: identifier 'CorridorType'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.cpp(4,1): error C2511: 'BSPParameters::BSPParameters(int,int,int,CorridorType)': overloaded member function not found in 'BSPParameters'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(2): message : see declaration of 'BSPParameters'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.cpp(5,2): error C2597: illegal reference to non-static member 'BSPParameters::minNumRooms'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(4): message : see declaration of 'BSPParameters::minNumRooms'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.cpp(6,2): error C2597: illegal reference to non-static member 'BSPParameters::minRoomWidth'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(5): message : see declaration of 'BSPParameters::minRoomWidth'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.cpp(7,2): error C2597: illegal reference to non-static member 'BSPParameters::minRoomHeight'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.h(6): message : see declaration of 'BSPParameters::minRoomHeight'
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\BSPParameters.cpp(8,2): error C2065: 'corridorType': undeclared identifier
-  SDLWrapper.cpp
+  CorridorGenerator.cpp
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(4): error C2280: 'Level::Level(void)': attempting to reference a deleted function
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Level.h(21): message : compiler has generated 'Level::Level' here
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Level.h(21,1): message : 'Level::Level(void)': function was implicitly deleted because a data member 'Level::grid' has either no appropriate default constructor or overload resolution was ambiguous
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Level.h(9): message : see declaration of 'Level::grid'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(21,20): error C2676: binary '!=': 'Grid' does not define this operator or a conversion to a type acceptable to the predefined operator
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(22,26): error C2440: 'return': cannot convert from 'Grid' to 'std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(22,9): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(25,14): error C2760: syntax error: unexpected token ',', expected 'id-expression'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(25,24): error C2061: syntax error: identifier 'lRoom'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(26,14): error C2760: syntax error: unexpected token ',', expected 'id-expression'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(26,24): error C2061: syntax error: identifier 'rRoom'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(28,31): error C2065: 'null': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(29,13): error C2065: 'lRoom': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(30,32): error C2065: 'null': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(31,13): error C2065: 'rRoom': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(33,13): error C2065: 'lRoom': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(33,22): error C2065: 'null': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(33,30): error C2065: 'rRoom': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(33,39): error C2065: 'null': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(34,20): error C2065: 'null': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(35,18): error C2065: 'lRoom': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(35,27): error C2065: 'null': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(36,20): error C2065: 'rRoom': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(37,18): error C2065: 'rRoom': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(37,27): error C2065: 'null': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(38,20): error C2065: 'lRoom': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(39,18): error C2065: 'Random': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(40,20): error C2065: 'lRoom': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(42,20): error C2065: 'rRoom': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(48,20): error C2065: 'null': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(48,39): error C2065: 'null': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(51,9): error C2760: syntax error: unexpected token ']', expected 'id-expression'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(51,11): error C2146: syntax error: missing ']' before identifier 'lengths'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(51,19): error C2061: syntax error: identifier 'lengths'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(53,13): error C2065: 'm_type': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(54,5): error C2050: switch expression not integral
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(56,53): error C2065: 'lengths': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(58,5): warning C4060: switch statement contains no 'case' or 'default' labels
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(63,52): error C2039: 'GridPosition': is not a member of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(5): message : see declaration of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(63,24): error C2512: 'Vector2': no appropriate default constructor available
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Vector2.h(5,1): message : see declaration of 'Vector2'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(64,52): error C2039: 'GetLength': is not a member of 'std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(5): message : see declaration of 'std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(64,78): error C2039: 'GetLength': is not a member of 'std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(5): message : see declaration of 'std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(64,25): error C2512: 'Vector2': no appropriate default constructor available
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Vector2.h(5,1): message : see declaration of 'Vector2'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(65,52): error C2039: 'GridPosition': is not a member of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(5): message : see declaration of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(65,24): error C2512: 'Vector2': no appropriate default constructor available
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Vector2.h(5,1): message : see declaration of 'Vector2'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(66,52): error C2039: 'GetLength': is not a member of 'std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(5): message : see declaration of 'std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(66,78): error C2039: 'GetLength': is not a member of 'std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(5): message : see declaration of 'std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(66,25): error C2512: 'Vector2': no appropriate default constructor available
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Vector2.h(5,1): message : see declaration of 'Vector2'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(78,12): error C2039: 'GridPosition': is not a member of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(5): message : see declaration of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(80,18): error C2760: syntax error: unexpected token ',', expected 'id-expression'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(80,27): error C2061: syntax error: identifier 'temp'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(82,23): error C2065: 'temp': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(91,12): error C2039: 'GridPosition': is not a member of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(5): message : see declaration of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(93,18): error C2760: syntax error: unexpected token ',', expected 'id-expression'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(93,27): error C2061: syntax error: identifier 'temp'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(95,23): error C2065: 'temp': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(108,5): error C2065: 'List': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(108,13): error C2062: type 'int' unexpected
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(114,68): error C2039: 'GridPosition': is not a member of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(5): message : see declaration of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(115,68): error C2039: 'GridPosition': is not a member of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(5): message : see declaration of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(118,17): error C2065: 'possiblePositions': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(122,60): error C2039: 'GridPosition': is not a member of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(5): message : see declaration of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(123,43): error C2039: 'GridPosition': is not a member of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(5): message : see declaration of 'std::vector<Tile,std::allocator<Tile>>'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(124,19): error C2065: 'possiblePositions': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(124,37): error C2065: 'Random': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(124,53): error C2065: 'possiblePositions': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(128,53): error C2143: syntax error: missing ']' before ','
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(128,55): error C2059: syntax error: ']'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(129,1): error C2511: 'void CorridorGenerator::PlaceStraightYCorridor(Tile [])': overloaded member function not found in 'CorridorGenerator'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.h(9): message : see declaration of 'CorridorGenerator'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(130,5): error C2065: 'List': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(130,13): error C2062: type 'int' unexpected
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(132,25): error C2065: 'roomLengths': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(134,29): error C2065: 'roomLengths': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(136,25): error C2065: 'roomOne': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(136,36): error C2065: 'roomLengths': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(137,25): error C2065: 'roomTwo': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(137,36): error C2065: 'roomLengths': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(140,17): error C2065: 'possiblePositions': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(144,17): error C2065: 'roomOne': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(144,28): error C2065: 'roomLengths': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(145,17): error C2065: 'roomTwo': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(146,19): error C2065: 'possiblePositions': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(146,37): error C2065: 'Random': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(146,53): error C2065: 'possiblePositions': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(147,5): error C2352: 'CorridorGenerator::PlaceCorridor': illegal call of non-static member function
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.h(21): message : see declaration of 'CorridorGenerator::PlaceCorridor'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(150,48): error C2143: syntax error: missing ']' before ','
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(150,50): error C2059: syntax error: ']'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(151,1): error C2511: 'void CorridorGenerator::PlaceBentCorridor(Tile [])': overloaded member function not found in 'CorridorGenerator'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.h(9): message : see declaration of 'CorridorGenerator'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(152,24): error C2065: 'roomOne': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(152,32): error C2065: 'Random': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(152,48): error C2065: 'roomLengths': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(152,69): error C2065: 'Random': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(152,85): error C2065: 'roomLengths': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(153,24): error C2065: 'roomTwo': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(153,32): error C2065: 'Random': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(153,48): error C2065: 'roomLengths': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(153,69): error C2065: 'Random': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(153,85): error C2065: 'roomLengths': undeclared identifier
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(155,41): error C2039: 'GridPosition': is not a member of 'Tile'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Tile.h(2): message : see declaration of 'Tile'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(156,41): error C2039: 'GridPosition': is not a member of 'Tile'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Tile.h(2): message : see declaration of 'Tile'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(157,41): error C2039: 'GridPosition': is not a member of 'Tile'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Tile.h(2): message : see declaration of 'Tile'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(158,41): error C2039: 'GridPosition': is not a member of 'Tile'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Tile.h(2): message : see declaration of 'Tile'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(162,9): error C2352: 'CorridorGenerator::PlaceCorridor': illegal call of non-static member function
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.h(21): message : see declaration of 'CorridorGenerator::PlaceCorridor'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(165,13): error C2352: 'CorridorGenerator::PlaceCorridor': illegal call of non-static member function
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.h(21): message : see declaration of 'CorridorGenerator::PlaceCorridor'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(167,13): error C2352: 'CorridorGenerator::PlaceCorridor': illegal call of non-static member function
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.h(21): message : see declaration of 'CorridorGenerator::PlaceCorridor'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(172,9): error C2352: 'CorridorGenerator::PlaceCorridor': illegal call of non-static member function
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.h(21): message : see declaration of 'CorridorGenerator::PlaceCorridor'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(172,57): fatal error C1003: error count exceeds 100; stopping compilation
+  Level.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\xhash(131,53): error C2064: term does not evaluate to a function taking 1 arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\xhash(155): message : see reference to variable template 'const bool _Nothrow_hash<std::hash<std::vector<std::vector<Tile,std::allocator<Tile> >,std::allocator<std::vector<Tile,std::allocator<Tile> > > > >,std::vector<std::vector<Tile,std::allocator<Tile> >,std::allocator<std::vector<Tile,std::allocator<Tile> > > > >' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\xhash(155): message : while compiling class template member function 'size_t std::_Uhash_compare<_Kty,_Hasher,_Keyeq>::operator ()<_Key>(const _Keyty &) noexcept(<expr>) const'
+          with
+          [
+              _Kty=TileGrid,
+              _Hasher=std::hash<TileGrid>,
+              _Keyeq=std::equal_to<TileGrid>,
+              _Key=TileGrid,
+              _Keyty=TileGrid
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\xhash(1066): message : see reference to function template instantiation 'std::pair<std::_List_const_iterator<std::_List_val<std::_List_simple_types<_Ty>>>,bool> std::_Hash<std::_Uset_traits<_Kty,std::_Uhash_compare<_Kty,_Hasher,_Keyeq>,_Alloc,false>>::emplace<const std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>&>(const std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>> &)' being compiled
+          with
+          [
+              _Ty=std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>,
+              _Kty=TileGrid,
+              _Hasher=std::hash<TileGrid>,
+              _Keyeq=std::equal_to<TileGrid>,
+              _Alloc=std::allocator<TileGrid>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\xhash(1066): message : see reference to function template instantiation 'std::pair<std::_List_const_iterator<std::_List_val<std::_List_simple_types<_Ty>>>,bool> std::_Hash<std::_Uset_traits<_Kty,std::_Uhash_compare<_Kty,_Hasher,_Keyeq>,_Alloc,false>>::emplace<const std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>&>(const std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>> &)' being compiled
+          with
+          [
+              _Ty=std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>,
+              _Kty=TileGrid,
+              _Hasher=std::hash<TileGrid>,
+              _Keyeq=std::equal_to<TileGrid>,
+              _Alloc=std::allocator<TileGrid>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\xhash(1065): message : while compiling class template member function 'std::pair<std::_List_const_iterator<std::_List_val<std::_List_simple_types<_Ty>>>,bool> std::_Hash<std::_Uset_traits<_Kty,std::_Uhash_compare<_Kty,_Hasher,_Keyeq>,_Alloc,false>>::insert(const std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>> &)'
+          with
+          [
+              _Ty=std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>,
+              _Kty=TileGrid,
+              _Hasher=std::hash<TileGrid>,
+              _Keyeq=std::equal_to<TileGrid>,
+              _Alloc=std::allocator<TileGrid>
+          ]
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Level.h(14): message : see reference to function template instantiation 'std::pair<std::_List_const_iterator<std::_List_val<std::_List_simple_types<_Ty>>>,bool> std::_Hash<std::_Uset_traits<_Kty,std::_Uhash_compare<_Kty,_Hasher,_Keyeq>,_Alloc,false>>::insert(const std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>> &)' being compiled
+          with
+          [
+              _Ty=std::vector<std::vector<Tile,std::allocator<Tile>>,std::allocator<std::vector<Tile,std::allocator<Tile>>>>,
+              _Kty=TileGrid,
+              _Hasher=std::hash<TileGrid>,
+              _Keyeq=std::equal_to<TileGrid>,
+              _Alloc=std::allocator<TileGrid>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\unordered_set(65): message : see reference to class template instantiation 'std::_Hash<std::_Uset_traits<_Kty,std::_Uhash_compare<_Kty,_Hasher,_Keyeq>,_Alloc,false>>' being compiled
+          with
+          [
+              _Kty=TileGrid,
+              _Hasher=std::hash<TileGrid>,
+              _Keyeq=std::equal_to<TileGrid>,
+              _Alloc=std::allocator<TileGrid>
+          ]
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Level.h(19): message : see reference to class template instantiation 'std::unordered_set<TileGrid,std::hash<TileGrid>,std::equal_to<TileGrid>,std::allocator<TileGrid>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\xhash(130,44): error C2056: illegal expression
+  Node.cpp
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Node.cpp(4,1): error C2512: 'Grid': no appropriate default constructor available
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Grid.h(8,7): message : see declaration of 'Grid'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Node.cpp(6,26): error C2398: Element '1': conversion from 'unsigned int' to 'T' requires a narrowing conversion
+          with
+          [
+              T=int
+          ]
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Node.cpp(6,48): error C2398: Element '2': conversion from 'unsigned int' to 'T' requires a narrowing conversion
+          with
+          [
+              T=int
+          ]
+  RoomGenerator.cpp
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\RoomGenerator.cpp(5): error C2280: 'Level::Level(void)': attempting to reference a deleted function
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Level.h(21): message : compiler has generated 'Level::Level' here
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Level.h(21,1): message : 'Level::Level(void)': function was implicitly deleted because a data member 'Level::grid' has either no appropriate default constructor or overload resolution was ambiguous
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Level.h(9): message : see declaration of 'Level::grid'
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\RoomGenerator.cpp(38,24): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\RoomGenerator.cpp(39,25): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Tile.cpp
   Vector2.cpp
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Vector2.cpp(6,6): error C3861: 'NULL': identifier not found
-C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\Vector2.cpp(7,6): error C3861: 'NULL': identifier not found
   Generating Code...

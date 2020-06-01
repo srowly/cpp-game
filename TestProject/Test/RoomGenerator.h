@@ -1,5 +1,7 @@
 #include "Vector2.h"
 #include "Node.h"
+#include "Level.h"
+#include "Tile.h"
 
 #pragma once
 class RoomGenerator
@@ -11,6 +13,6 @@ private:
 public:
 
     RoomGenerator(Level level, Vector2<int> minSize);
-    void PlaceRooms(Node node);
-    void GenNewRoom(Node node);
+    void PlaceRooms(Node* node);
+    void GenNewRoom(Node* node);
 };

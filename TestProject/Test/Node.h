@@ -9,7 +9,7 @@ class Node
 public:
 	Vector2<int> size;
 	Grid grid;
-	Grid room;
+	Grid* room;
 
 	Node* leftChild;
 	Node* rightChild;
