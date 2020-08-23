@@ -3,6 +3,8 @@
 #include "BSPAlgorithm.h"
 #include "Renderer.h"
 #include "RoomGenerator.h"
+#include <time.h>
+#include <list>
 
 #pragma once
 class Level
@@ -17,6 +19,5 @@ public:
 	void generateWithBSP();
 private:
 	void setSection(BSPAlgorithm& bsp, TileGrid grid, Tile::Types type, int spriteNo);
-	void setSections(BSPAlgorithm& bsp, Node* node, int spriteNo);
 };
 
