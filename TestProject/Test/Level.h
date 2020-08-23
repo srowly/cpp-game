@@ -1,22 +1,22 @@
 #include <unordered_set>
 
-#include "Grid.h"
+#include "BSPAlgorithm.h"
+#include "Renderer.h"
+#include "RoomGenerator.h"
 
 #pragma once
 class Level
 {
 public:
-	Grid grid;
-	std::unordered_set<Tile> floor;
+	TileGrid grid;
 
-    void AddRoom(TileGrid room);
-    void AddCorridor(TileGrid corridor);
-    void RemoveRoom(TileGrid room);
-    void RemoveCorridor(TileGrid corridor);
+	Renderer& renderer;
 
+    Level(Renderer& renderer);
+
+	void generateWithBSP();
 private:
-    std::unordered_set<TileGrid> roomsAndCorridors;
-    std::unordered_set<TileGrid> rooms;
-    std::unordered_set<TileGrid> corridors;
+	void setSection(BSPAlgorithm& bsp, TileGrid grid, Tile::Types type, int spriteNo);
+	void setSections(BSPAlgorithm& bsp, Node* node, int spriteNo);
 };
 

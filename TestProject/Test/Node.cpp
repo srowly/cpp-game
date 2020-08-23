@@ -1,12 +1,15 @@
 #include "Node.h"
 
-Node::Node(Grid grid)
+Node::Node() : identifier(0), size(0, 0)
 {
-	this->grid = grid;
-	size = { grid.tiles.size(), grid.tiles[0].size() };
 	leftChild = NULL;
 	rightChild = NULL;
-	room = NULL;
+};
+
+Node::Node(TileGrid grid, int identifier) : grid(grid), size(grid.size(), grid[0].size()), identifier(identifier)
+{
+	leftChild = NULL;
+	rightChild = NULL;
 };
 
 Node::~Node()
@@ -16,7 +19,4 @@ Node::~Node()
 
 	if(rightChild != NULL)
 		delete rightChild;
-
-	if(room != NULL)
-		delete room;
 };

@@ -1,20 +1,23 @@
 #include <vector>
 #include "Tile.h"
 #include "Vector2.h"
-#include "Grid.h"
 
 #pragma once
 class Node
 {
 public:
+	int identifier;
+
 	Vector2<int> size;
-	Grid grid;
-	Grid* room;
+	TileGrid grid;
 
 	Node* leftChild;
 	Node* rightChild;
 
-	Node(Grid grid);
+	TileGrid room;
+
+	Node();
+	Node(TileGrid grid, int indentifier);
 	~Node();
 };
 

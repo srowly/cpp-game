@@ -1,6 +1,8 @@
 #include <SDL.h>
 #include <stdio.h>
+
 #include "Renderer.h"
+#include "Level.h"
 
 #pragma once
 class SDLWrapper
@@ -26,6 +28,7 @@ public:
 
 private:
 	Renderer* renderer;
+	Level* level;
 	int curSprite = 0;
 };
 

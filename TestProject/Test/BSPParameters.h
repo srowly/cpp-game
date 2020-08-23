@@ -7,13 +7,11 @@ enum CorridorType
 };
 
 #pragma once
-class BSPParameters
+struct BSPParameters
 {
 public:
 	int minNumRooms;
 	int minRoomWidth;
 	int minRoomHeight;
 	CorridorType corridorType;
-
-	BSPParameters(int minRooms, int minWidth, int minHeight, CorridorType type);
 };

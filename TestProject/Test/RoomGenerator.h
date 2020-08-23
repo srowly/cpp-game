@@ -1,18 +1,19 @@
-#include "Vector2.h"
 #include "Node.h"
-#include "Level.h"
-#include "Tile.h"
+#include "BSPAlgorithm.h"
 
 #pragma once
 class RoomGenerator
 {
-private:
-    Vector2<int> minSize;
-    Level level;
-
 public:
+	RoomGenerator(int minWidth, int minHeight, BSPAlgorithm& bspAlgo);
+	void PlaceRooms(Node* n);
+	int roomNumber;
 
-    RoomGenerator(Level level, Vector2<int> minSize);
-    void PlaceRooms(Node* node);
-    void GenNewRoom(Node* node);
+private:
+	int minWidth;
+	int minHeight;
+	BSPAlgorithm& bspAlgo;
+
+	void GenNewRoom(Node* n);
 };
+

@@ -1,67 +1,59 @@
 #include "RoomGenerator.h"
 
-
-RoomGenerator::RoomGenerator(Level level, Vector2<int> minSize)
+RoomGenerator::RoomGenerator(int minWidth, int minHeight, BSPAlgorithm& bspAlgo) : bspAlgo(bspAlgo)
 {
-    this->minSize = minSize;
-    this->level = level;
+	this->minWidth = minWidth;
+	this->minHeight = minHeight;
+	this->roomNumber = 0;
 }
 
-void RoomGenerator::PlaceRooms(Node* node)
+
+//Called by the BSPAlgo with the root node, moves through until leaf nodes found
+//Attempts to add room to the subsection of the base grid referenced by these nodes.
+void RoomGenerator::PlaceRooms(Node* n)
 {
-    if (node->leftChild == NULL && node->rightChild == NULL)
-    {
-        GenNewRoom(node);
-    }
-    else
-    {
-        PlaceRooms(node->leftChild);
-        PlaceRooms(node->rightChild);
-    }
+	if (n->leftChild == NULL && n->rightChild == NULL)
+		GenNewRoom(n);
+	else
+	{
+		PlaceRooms(n->leftChild);
+		PlaceRooms(n->rightChild);
+	}
 }
 
-void RoomGenerator::GenNewRoom(Node* node)
+//
+void RoomGenerator::GenNewRoom(Node* n)
 {
-    int nodeX = node->size.x;
-    int nodeY = node->size.y;
+	int maxWidth = n->size.x;
+	int maxHeight = n->size.y;
+	int midWidth = maxWidth / 2;
+	int midHeight = maxHeight / 2;
 
-    for (int i = 0; i < 50; i++)
-    {
-        int botLeftX = rand() % nodeX / 2 + 1;
-        int botLeftY = rand() % nodeY / 2 + 1;
-        int topRightX = rand() % nodeX + nodeX / 2; 
-        int topRightY = rand() % nodeY + nodeY / 2;
+	if (maxWidth < minWidth || maxHeight < minHeight)
+		return;
 
-        int width = topRightX - botLeftX;
-        int height = topRightY - botLeftY;
+	for (int i = 0; i < 100; i++)
+	{
+		//rand() % ((highestNumber - lowestNumber) + 1) + lowestNumber
+		//Chooses 4 points in the node to act as the room corners.
+		int botLeftX = rand() % (midWidth);
+		int botLeftY = rand() % (midHeight);
+		int topRightX = rand() % (maxWidth - midWidth) + midWidth;
+		int topRightY = rand() % (maxHeight - midHeight) + midHeight;
 
-        float maxWidth = nodeX;
-        float maxHeight = nodeY;
+		int width = topRightX - botLeftX;
+		int height = topRightY - botLeftY;
 
-        int varyRoom = rand() % 3 + 1;
-        if (varyRoom == 1)
-        {
-            maxWidth = round(maxWidth / 2);
-            maxHeight = round(maxHeight / 2);
-        }
-
-        if (varyRoom == 2)
-        {
-            maxWidth = round(maxWidth / 1.5f);
-            maxHeight = round(maxHeight / 1.5f);
-        }
-
-        if ((width > minSize.x) && (height > minSize.y))
-        {
-            if ((width < maxWidth) && (height < maxHeight))
-            {
-                node->room = Grid::GetSection(node->grid.tiles, botLeftX, topRightX, botLeftY, topRightY);
-
-                std::function<void(Tile)> lambda = [&](Tile t) { level.floor.insert(t); };
-                Grid::SetSection(node->room.tiles, Tile::Types::Floor, lambda);
-                level.AddRoom(node->room.tiles);
-                break;
-            }
-        }
-    }
+		//If the room falls within the width and height limits its generated .
+		if ((width > minWidth) && (height > minHeight))
+		{
+			if ((width < maxWidth) && (height < maxHeight))
+			{
+				n->room = bspAlgo.getSection(n->grid, botLeftX, topRightX, botLeftY, topRightY);
+				roomNumber++;
+				printf("\nroomNumber: %d width:%d height:%d\n", roomNumber, width, height);
+				break;
+			}
+		}
+	}
 }

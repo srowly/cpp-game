@@ -3,11 +3,13 @@
 SDLWrapper::SDLWrapper()
 {
 	renderer = NULL;
+	level = NULL;
 }
 
 SDLWrapper::~SDLWrapper()
 {
 	renderer = NULL;
+	level = NULL;
 }
 
 bool SDLWrapper::initSDL()
@@ -29,6 +31,9 @@ bool SDLWrapper::initSDL()
 		renderer->init(1600, 960);
 		renderer->loadSpriteSheet("sprite_sheet_full.png", 32);
 		renderer->renderSpriteFromSheet(curSprite, 800, 480);
+	
+		level = new Level(*renderer);
+		level->generateWithBSP();
 	}
 
 	return success;
@@ -37,6 +42,7 @@ bool SDLWrapper::initSDL()
 void SDLWrapper::deinitSDL()
 {
 	delete renderer;
+	delete level;
 	//Quit SDL subsystems
 	SDL_Quit();
 }
