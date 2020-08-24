@@ -1,2 +1,42 @@
-﻿  RoomGenerator.cpp
+﻿  CorridorGenerator.cpp
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(56,84): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(56,69): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(56,55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(56,40): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(57,84): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(57,69): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(57,55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Test\CorridorGenerator.cpp(57,40): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
   Test.vcxproj -> C:\Users\srowlands\Documents\GitHub\cpp-game\TestProject\Debug\Test.exe

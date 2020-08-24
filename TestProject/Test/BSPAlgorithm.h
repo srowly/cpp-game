@@ -13,15 +13,16 @@ private:
 	Vector2<int> minNodeSize;
 	int numNodes = 0;
 public:
+	TileGrid& grid;
 	Node* root;
 	std::list<Node*> nodes;
 
-	void Run(TileGrid& grid, int seed);
+	void Run();
 	void DivideGrid(Node& node);
 
 	TileGrid getSection(TileGrid parentGrid, int minX, int maxX, int minY, int maxY);
 	void setSection(TileGrid partition, Tile::Types type, std::function<void(Tile*)> optionalOnSet);
 	void forAllNodes(std::function<void(Node*)> onNode);
-	BSPAlgorithm();
+	BSPAlgorithm(TileGrid& grid, int seed);
 	~BSPAlgorithm();
 };

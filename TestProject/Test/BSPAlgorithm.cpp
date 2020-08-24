@@ -1,12 +1,14 @@
 #include "BSPAlgorithm.h"
 
-BSPAlgorithm::BSPAlgorithm() : minNodeSize(0, 0)
+BSPAlgorithm::BSPAlgorithm(TileGrid& grid, int seed) : minNodeSize(0, 0), grid(grid)
 {
+    root = NULL;
+    srand(seed);
 }
 
-void BSPAlgorithm::Run(TileGrid& grid, int seed)
+void BSPAlgorithm::Run()
 {
-    srand(seed);
+    this->grid = grid;
     minNodeSize = { 5, 5 };
     root = new Node(grid, numNodes);
     nodes.push_back(root);
@@ -33,35 +35,31 @@ void BSPAlgorithm::DivideGrid(Node& node)
         splitPoint = rand() % ((gridX - minNodeSize.x)) + minNodeSize.x;
         sectionX = getSection(grid, 0, splitPoint, 0, gridY);
         sectionY = getSection(grid, splitPoint, gridX, 0, gridY);
-        if (sectionX.size() < minNodeSize.x || sectionY.size() < minNodeSize.x)
-            return;
     }
     else
     {
         splitPoint = rand() % ((gridY - minNodeSize.y)) + minNodeSize.y;
         sectionX = getSection(grid, 0, gridX, 0, splitPoint);
         sectionY = getSection(grid, 0, gridX, splitPoint, gridY);
-        if (sectionX[0].size() < minNodeSize.y || sectionY[0].size() < minNodeSize.y)
-            return;
     }
-    
-    node.leftChild = new Node(sectionX, ++numNodes);
-    nodes.push_back(node.leftChild);
-    node.rightChild = new Node(sectionY, ++numNodes);
-    nodes.push_back(node.rightChild);
   
-    if (node.leftChild->size.x > minNodeSize.x && node.leftChild->size.y > minNodeSize.y)
+    if (sectionX.size() > minNodeSize.x && sectionX[0].size() > minNodeSize.y)
     {
+        node.leftChild = new Node(sectionX, ++numNodes);
+        nodes.push_back(node.leftChild);
         DivideGrid(*node.leftChild);
     }
-    if (node.rightChild->size.x > minNodeSize.x && node.rightChild->size.y > minNodeSize.y)
+    if (sectionY.size() > minNodeSize.x && sectionY[0].size() > minNodeSize.y)
     {
+        node.rightChild = new Node(sectionY, ++numNodes);
+        nodes.push_back(node.rightChild);
         DivideGrid(*node.rightChild);
     }
 }
 
 TileGrid BSPAlgorithm::getSection(TileGrid parentGrid, int minX, int maxX, int minY, int maxY)
 {
+    printf("\nbsp get section");
     TileGrid tiles;
 
     for (int i = minX; i < maxX; i++)
@@ -75,7 +73,7 @@ TileGrid BSPAlgorithm::getSection(TileGrid parentGrid, int minX, int maxX, int m
 
         tiles.push_back(v1);
     }
-
+    printf("\nbsp get section finished");
     return tiles;
 }
 

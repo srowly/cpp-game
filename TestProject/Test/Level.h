@@ -3,6 +3,7 @@
 #include "BSPAlgorithm.h"
 #include "Renderer.h"
 #include "RoomGenerator.h"
+#include "CorridorGenerator.h"
 #include <time.h>
 #include <list>
 
@@ -15,6 +16,8 @@ public:
 	Renderer& renderer;
 
     Level(Renderer& renderer);
+
+	std::list<TileGrid> corridors;
 
 	void generateWithBSP();
 private:

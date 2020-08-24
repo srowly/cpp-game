@@ -23,16 +23,23 @@ Level::Level(Renderer& renderer) : renderer(renderer)
 
 void Level::generateWithBSP()
 {
-	BSPAlgorithm bsp = BSPAlgorithm();
-	bsp.Run(grid, time(NULL));
+	BSPAlgorithm bsp = BSPAlgorithm(grid, time(NULL));
+	bsp.Run();
 
 	setSection(bsp, bsp.root->grid, Tile::Types::Wall, 702);
 
 	RoomGenerator roomGen = RoomGenerator(4, 4, bsp);
 	roomGen.PlaceRooms(bsp.root);
 
-	std::function<void(Node*)> lambda = [&] (Node* n) { setSection(bsp, n->grid, Tile::Types::Floor,1000); };
-	bsp.forAllNodes(lambda);
+	CorridorGenerator corridorGen = CorridorGenerator(bsp);
+	corridorGen.PlaceCorridors(bsp.root);
+
+	std::vector<TileGrid>::iterator corridors;
+
+	for (corridors = corridorGen.corridors.begin(); corridors != corridorGen.corridors.end(); ++corridors)
+	{
+		setSection(bsp, (*corridors), Tile::Types::Floor, 400);
+	}
 
 	std::function<void(Node*)> lambda2 = [&](Node* n) { setSection(bsp, n->room, Tile::Types::Floor, 400); };
 	bsp.forAllNodes(lambda2);
